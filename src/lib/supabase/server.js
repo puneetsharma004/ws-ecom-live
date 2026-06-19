@@ -1,0 +1,31 @@
+import "server-only";
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
+
+// Server Supabase client (anon key, cookie-based auth) for Server Components
+// and Route Handlers. RLS still applies — this is the authenticated user's view.
+export async function createClient() {
+  const cookieStore = await cookies();
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          try {
+            for (const { name, value, options } of cookiesToSet) {
+              cookieStore.set(name, value, options);
+            }
+          } catch {
+            // Called from a Server Component (cookies are read-only there).
+            // The middleware refreshes the session, so this can be ignored.
+          }
+        },
+      },
+    },
+  );
+}
