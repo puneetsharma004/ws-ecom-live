@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sliptech | Premium Tech Backpack</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#00174b",
+                      "on-tertiary-fixed": "#001f26",
+                      "on-primary-fixed": "#131b2e",
+                      "tertiary": "#000000",
+                      "surface": "#fcf8fa",
+                      "primary-fixed": "#dae2fd",
+                      "on-tertiary-container": "#0090a9",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f6f3f5",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface-bright": "#fcf8fa",
+                      "background": "#fcf8fa",
+                      "tertiary-fixed": "#acedff",
+                      "outline": "#76777d",
+                      "secondary-fixed-dim": "#b4c5ff",
+                      "on-error": "#ffffff",
+                      "surface-container-high": "#eae7e9",
+                      "outline-variant": "#c6c6cd",
+                      "primary-container": "#131b2e",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#303032",
+                      "surface-variant": "#e4e2e4",
+                      "surface-tint": "#565e74",
+                      "tertiary-fixed-dim": "#4cd7f6",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "secondary-container": "#316bf3",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#bec6e0",
+                      "surface-dim": "#dcd9db",
+                      "surface-container-highest": "#e4e2e4",
+                      "surface-container": "#f0edef",
+                      "primary": "#000000",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#001f26",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#dbe1ff",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#fefcff",
+                      "on-surface": "#1b1b1d",
+                      "on-background": "#1b1b1d",
+                      "on-surface-variant": "#45464d",
+                      "secondary": "#0051d5",
+                      "on-secondary-fixed-variant": "#003ea8",
+                      "on-primary-container": "#7c839b",
+                      "inverse-on-surface": "#f3f0f2",
+                      "on-tertiary-fixed-variant": "#004e5c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "24px",
+                      "stack-xs": "4px",
+                      "stack-md": "24px",
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "stack-lg": "48px",
+                      "margin-desktop": "64px",
+                      "stack-xl": "80px",
+                      "stack-sm": "12px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Poppins"],
+                      "label-md": ["Inter"],
+                      "display-lg-mobile": ["Poppins"],
+                      "headline-lg": ["Poppins"],
+                      "headline-xl": ["Poppins"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-lg": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bezier-transition {
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-lg">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl dark:bg-on-primary-fixed/80 shadow-[0_4px_30px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<!-- Brand -->
+<a class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-primary dark:text-primary-fixed" href="#">
+                Sliptech
+            </a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center space-x-gutter">
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim font-semibold border-b-2 border-secondary pb-1" href="#">Shop</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors pb-1" href="#">Categories</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors pb-1" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors pb-1" href="#">Contact</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center space-x-unit">
+<button class="p-2 rounded-full hover:bg-surface-container-high/50 transition-all duration-300 scale-95 active:scale-90 cubic-bezier(0.4,0,0.2,1) text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high/50 transition-all duration-300 scale-95 active:scale-90 cubic-bezier(0.4,0,0.2,1) text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-[100px] pb-stack-xl px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Breadcrumbs (Structural aid) -->
+<div class="mb-stack-md flex items-center space-x-2 font-label-sm text-label-sm text-outline">
+<a class="hover:text-primary transition-colors" href="#">Shop</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Gear</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface">Premium Tech Backpack</span>
+</div>
+<!-- Product Details Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-margin-desktop items-start">
+<!-- Left Gallery (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-stack-sm">
+<!-- Main Image -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-lowest ambient-shadow group cursor-zoom-in">
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" data-alt="A high-end, futuristic tech backpack presented in a bright, minimalist studio setting. The backpack features clean lines, matte black waterproof materials, and subtle geometric paneling. High-key, soft white lighting illuminates the product, creating a pristine light-mode aesthetic. The background is a seamless, pure white cyc wall, emphasizing the backpack's premium engineering and precision design. The mood is sophisticated and utilitarian." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDfdfiOjt2egUowCxWRUqJAu2v3lOAyH0FBjn8fKaAVG6T9b46P9ceC3Ky58UYW0-gmLHo_YbczHBiIIuzMEQMCfPcMWO9Ruet4IW7-nUa5XO0EoMXbtvhU0BCSj22yhAes_6K8yVWgx9XxmCNWOkFh-Gp459Lk4fgYuostB-NTyW8fUnuZYYrZ98S7_y0RNctoh9Tny2bgkOBkHEXW-HMNnl_yHh-bjsc4-ym_U43XUtuxOgvAc6JB2l5JMWOHWRgNASBsfNlgIM"/>
+<!-- Badges -->
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-[#06B6D4] text-tertiary font-label-sm text-label-sm px-3 py-1 rounded-full">New Arrival</span>
+<span class="glass-panel text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full">In Stock</span>
+</div>
+</div>
+<!-- Thumbnails -->
+<div class="grid grid-cols-4 gap-stack-sm">
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container-lowest border-2 border-primary cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A close-up shot focusing on the high-quality, matte black waterproof zippers and textured fabric of the futuristic tech backpack. Bright, even lighting highlights the precision engineering and durable materials. Set against a pure white background in a minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRtjEjaQ7Kmq5f1gaoG4RRLOOEihoZGe171yOgGqx1elSmxxjIXcbHs5LynEYV1dgF4wTw4salA9FGh0C0WxKfsaubF6QUFkHsxOglZO8ASDS7Gjz7oDmQd9g662gv9hP0yDRF7nMfcYwb8OpeGbRwneQ7S5d4THrx0eiL6YlYXdab2XL1bi1aRAIRTm4fSKDuFuDU3HLjnE-SaHKaHhql_B2sIdHxGbXJniRQBAIc3S-olLVr2xms-6N9rUJIr-w6kmG9WUJPRXk"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container-low border-2 border-transparent hover:border-outline-variant transition-colors cursor-pointer opacity-70 hover:opacity-100">
+<img class="w-full h-full object-cover" data-alt="A detailed view of the tech backpack's ergonomic back panel and padded straps. The shot is well-lit in a minimalist white studio, showcasing the breathable mesh material and structural support design. The aesthetic is clean and highly technical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANZGZYkLIZap7mGmvu5uXJ5NAcL32bna0OZ3DFCprsytXVxhu9E04iO1QeernpNkZEN_exxJAuBGHV9pNLpkHyAYqdgu9TbLgjxhHmFh0VZIynEQMfYwMDPk2RZMEGkZgHQn8Lvqg9BLDFSKwx-H516jVUCzUVvn13NmmjJn1xFqhCuhlKWSLsPUIt0B4Md9i7yte45IeBocGvI6nPKWel_ij7ffp1pq4FStAY2VgHBelnaKdFJoCHE8jGPpGouCkjlRNMwVO6614"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container-low border-2 border-transparent hover:border-outline-variant transition-colors cursor-pointer opacity-70 hover:opacity-100">
+<img class="w-full h-full object-cover" data-alt="An interior view of the tech backpack showing specialized compartments for laptops and gadgets. The clean, organized layout is illuminated by soft white light, highlighting the premium protective lining and meticulous construction. Minimalist high-tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrWvqXXKHiazNCCadUXpkx31MKSfI9uuI53lo-8h-NnyStrhIGJX3puxKfjCA1eF3sqibwHKaHcJ2Jd13U7-vTeaCqF4K_q6rSMlLSaDMC6EDLp6QTwqp09Yzh1-kA0vh04Reduo20T2yRfsTToayxAfeAlQpgF3-s-vgW8LKyr-rtkPju-HjeqXlCPLcuYdJ-V2VmBH_unjXsfx63hIreteZ3TrIVL6D08Htg4gw2ZZXeTOn6MaKQWlOV14GmjasV6vv9sVx_3f8"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container-low border-2 border-transparent hover:border-outline-variant transition-colors cursor-pointer flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-[32px]">play_circle</span>
+</div>
+</div>
+</div>
+<!-- Right Details (5 cols) -->
+<div class="lg:col-span-5 flex flex-col pt-stack-md lg:pt-0">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-xs tracking-tight">
+                    Premium Tech Backpack
+                </h1>
+<div class="font-headline-xl text-headline-xl text-secondary mb-stack-md">
+                    $120.00
+                </div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg border-b border-outline-variant/20 pb-stack-md">
+                    Engineered for the modern professional. Featuring aerospace-grade weatherproof materials, impact-resistant device compartments, and an ergonomic suspension system. Designed for precision, built for endurance.
+                </p>
+<!-- Color Selection -->
+<div class="mb-stack-md">
+<h3 class="font-label-md text-label-md text-on-surface mb-stack-xs uppercase tracking-wider">Color: <span class="font-normal text-on-surface-variant" id="color-name">Stealth Black</span></h3>
+<div class="flex space-x-3">
+<button class="w-10 h-10 rounded-full bg-[#1A1A1A] border-2 border-primary ring-2 ring-transparent focus:ring-secondary outline-none transition-all"></button>
+<button class="w-10 h-10 rounded-full bg-[#4A5568] border-2 border-transparent hover:border-outline ring-2 ring-transparent focus:ring-secondary outline-none transition-all"></button>
+<button class="w-10 h-10 rounded-full bg-[#2C3E50] border-2 border-transparent hover:border-outline ring-2 ring-transparent focus:ring-secondary outline-none transition-all"></button>
+</div>
+</div>
+<!-- Size Selection -->
+<div class="mb-stack-lg">
+<h3 class="font-label-md text-label-md text-on-surface mb-stack-xs uppercase tracking-wider">Capacity</h3>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-3 px-4 border border-primary bg-surface-container-lowest text-primary font-label-md text-label-md rounded-lg transition-colors">
+                            15L (Everyday)
+                        </button>
+<button class="py-3 px-4 border border-outline-variant hover:border-outline bg-transparent text-on-surface-variant font-label-md text-label-md rounded-lg transition-colors">
+                            20L (Standard)
+                        </button>
+<button class="py-3 px-4 border border-outline-variant hover:border-outline bg-transparent text-on-surface-variant font-label-md text-label-md rounded-lg transition-colors">
+                            25L (Travel)
+                        </button>
+</div>
+</div>
+<!-- Actions Container -->
+<div class="glass-panel p-stack-md rounded-xl ambient-shadow border border-surface-container-highest">
+<!-- Quantity -->
+<div class="flex items-center justify-between mb-stack-md">
+<span class="font-label-md text-label-md text-on-surface">Quantity</span>
+<div class="flex items-center border border-outline-variant rounded-lg bg-surface-container-lowest overflow-hidden">
+<button class="px-4 py-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="px-4 py-2 font-label-md text-label-md text-primary w-12 text-center">1</span>
+<button class="px-4 py-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+<!-- Buttons -->
+<div class="flex flex-col space-y-3">
+<button class="w-full py-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center justify-center space-x-2 bezier-transition active:scale-[0.98]">
+<span>Buy Now</span>
+</button>
+<button class="w-full py-4 bg-transparent border border-outline-variant text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center justify-center space-x-2 bezier-transition active:scale-[0.98]">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Collapsible Info -->
+<div class="mt-stack-lg border-t border-outline-variant/20 pt-stack-sm divide-y divide-outline-variant/20">
+<details class="group py-3" open="">
+<summary class="flex justify-between items-center font-label-md text-label-md text-on-surface cursor-pointer list-none">
+                            Specifications
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform duration-300">expand_more</span>
+</summary>
+<div class="pt-3 font-body-md text-body-md text-on-surface-variant">
+<ul class="list-disc pl-5 space-y-1">
+<li>Dimensions: 18" H x 12" W x 6" D</li>
+<li>Weight: 2.4 lbs (Empty)</li>
+<li>Material: 840D Ballistic Nylon</li>
+<li>Fits up to 16" MacBook Pro</li>
+</ul>
+</div>
+</details>
+<details class="group py-3">
+<summary class="flex justify-between items-center font-label-md text-label-md text-on-surface cursor-pointer list-none">
+                            Shipping &amp; Returns
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform duration-300">expand_more</span>
+</summary>
+<div class="pt-3 font-body-md text-body-md text-on-surface-variant">
+                            Free standard shipping on orders over $100. 30-day return policy for unused items in original packaging.
+                        </div>
+</details>
+</div>
+</div>
+</div>
+<!-- Related Products -->
+<section class="mt-stack-xl pt-stack-xl border-t border-outline-variant/20">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-md text-center">Complete Your Setup</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Related Product 1 -->
+<a class="group block" href="#">
+<div class="aspect-square bg-surface-container-low rounded-xl mb-stack-sm overflow-hidden ambient-shadow border border-transparent group-hover:border-outline-variant transition-colors relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A sleek, matte black coffee mug resting on a clean, light gray surface. The mug has a sharply angled, geometric handle, embodying a precision tech aesthetic. Soft, diffused overhead lighting casts a subtle ambient shadow, creating a modern, minimalist atmosphere. The overall composition is clean, airy, and high-end, perfectly aligned with a premium lifestyle brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxOev0yPDLZ0_gXPsGJkbcOeLTerbqD305tBs8CSCDTSgUwk_bJrHDC1rQFJk0yPnyxfWBc2ifvpWpRGU9Mt31_2bEBkWlh-inNPspXL0u3ijCeY1MSXDLyMR8vEe07ex7L8lUMpeOpwhcd3u6RAzFG6Yhd266I2tPTePuFQ6iryL5hafXOVQPx9BYGjtaiPB_bB__R4mdZ_fNqjRVromsc4NGFLceBiA2Ixdq92BZ8xR6g0kOzBKPki2pk-HV4ysrFv5ksPKwy_k"/>
+<div class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-sm text-primary">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface group-hover:text-secondary transition-colors">Matte Black Coffee Mug</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Thermal Insulated</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$35.00</span>
+</div>
+</a>
+<!-- Related Product 2 -->
+<a class="group block" href="#">
+<div class="aspect-square bg-surface-container-low rounded-xl mb-stack-sm overflow-hidden ambient-shadow border border-transparent group-hover:border-outline-variant transition-colors relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A set of premium, minimalist silicone laptop stickers arranged neatly on a pristine white desk. The stickers feature precise geometric shapes and subtle tech-inspired iconography in shades of gray and subtle blue. High-key lighting ensures sharp clarity and deep contrast. The scene is immaculate, evoking a sense of modern engineering and organized workspace aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw6f7OobHPP3sNNcP1F1YtOhguEB5w1jbJtTP9tXgO4bdQnouwDyqYlAn7Ld7dScDjgBf0mqzVhKvZVozDhXuDjUpifDJGlYmhIYxcLSCkf9Qa6o09icdMmAR3XLceTQeRIsUk0MjwMgLDFK-8IKhqMaF5NNoYTxNf9JTCjU_IH_tZbMLoU8PUHWrlkzH4IfdPjsYY5q5ynJ6spjAUQjAxUjYD8C0I_WV7oU9FFMx4rJGz0PQJ58kUItmBovKP2NrpoOTeEwSnJvM"/>
+<div class="absolute bottom-4 right-4 bg-surface/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-sm text-primary">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface group-hover:text-secondary transition-colors">Silicon Laptop Sticker Set</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Matte Finish</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$15.00</span>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-xl bg-surface-container-highest dark:bg-on-tertiary-container flat no shadows mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-2 flex flex-col justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed mb-4">
+                        Sliptech
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant max-w-md">
+                        Engineered for Precision. Building the infrastructure for modern, high-performance lifestyles through meticulous design and uncompromised materials.
+                    </p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant mt-stack-md opacity-80">
+                    © 2024 Sliptech Merchandise Store. Engineered for Precision.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-on-secondary-container mb-4 uppercase tracking-wider">Legal</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-on-surface dark:text-on-secondary-container mb-4 uppercase tracking-wider">Support</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100" href="#">Shipping Info</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100" href="#">Returns</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

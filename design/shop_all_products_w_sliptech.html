@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>W Sliptech Shop - Merchandise Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#00174b",
+                      "on-tertiary-fixed": "#001f26",
+                      "on-primary-fixed": "#131b2e",
+                      "tertiary": "#000000",
+                      "surface": "#fcf8fa",
+                      "primary-fixed": "#dae2fd",
+                      "on-tertiary-container": "#0090a9",
+                      "on-error-container": "#93000a",
+                      "surface-container-low": "#f6f3f5",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface-bright": "#fcf8fa",
+                      "background": "#fcf8fa",
+                      "tertiary-fixed": "#acedff",
+                      "outline": "#76777d",
+                      "secondary-fixed-dim": "#b4c5ff",
+                      "on-error": "#ffffff",
+                      "surface-container-high": "#eae7e9",
+                      "outline-variant": "#c6c6cd",
+                      "primary-container": "#131b2e",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#303032",
+                      "surface-variant": "#e4e2e4",
+                      "surface-tint": "#565e74",
+                      "tertiary-fixed-dim": "#4cd7f6",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "secondary-container": "#316bf3",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#bec6e0",
+                      "surface-dim": "#dcd9db",
+                      "surface-container-highest": "#e4e2e4",
+                      "surface-container": "#f0edef",
+                      "primary": "#000000",
+                      "on-secondary": "#ffffff",
+                      "tertiary-container": "#001f26",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#dbe1ff",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#fefcff",
+                      "on-surface": "#1b1b1d",
+                      "on-background": "#1b1b1d",
+                      "on-surface-variant": "#45464d",
+                      "secondary": "#0051d5",
+                      "on-secondary-fixed-variant": "#003ea8",
+                      "on-primary-container": "#7c839b",
+                      "inverse-on-surface": "#f3f0f2",
+                      "on-tertiary-fixed-variant": "#004e5c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "24px",
+                      "stack-xs": "4px",
+                      "stack-md": "24px",
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "stack-lg": "48px",
+                      "margin-desktop": "64px",
+                      "stack-xl": "80px",
+                      "stack-sm": "12px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Poppins"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Poppins"
+                      ],
+                      "headline-lg": [
+                              "Poppins"
+                      ],
+                      "headline-xl": [
+                              "Poppins"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .product-card {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col pt-24">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 backdrop-blur-xl dark:bg-on-primary-fixed/80 fixed top-0 w-full z-50 bg-surface/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold tracking-tight text-primary dark:text-primary-fixed" href="#">
+                Sliptech
+            </a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex space-x-gutter items-center">
+<a class="text-secondary dark:text-secondary-fixed-dim font-semibold border-b-2 border-secondary font-body-md text-body-md scale-95 active:scale-90 transition-transform cubic-bezier(0.4,0,0.2,1)" href="#">
+                        Shop
+                    </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:bg-surface-container-high/50 transition-all duration-300 font-body-md text-body-md scale-95 active:scale-90 transition-transform cubic-bezier(0.4,0,0.2,1)" href="#">
+                        Categories
+                    </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:bg-surface-container-high/50 transition-all duration-300 font-body-md text-body-md scale-95 active:scale-90 transition-transform cubic-bezier(0.4,0,0.2,1)" href="#">
+                        About
+                    </a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors hover:bg-surface-container-high/50 transition-all duration-300 font-body-md text-body-md scale-95 active:scale-90 transition-transform cubic-bezier(0.4,0,0.2,1)" href="#">
+                        Contact
+                    </a>
+</div>
+<!-- Actions & Search -->
+<div class="flex items-center space-x-stack-sm">
+<div class="hidden md:flex items-center bg-surface-container-high rounded-full px-4 py-2">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md p-0 w-32 focus:w-48 transition-all duration-300" placeholder="Search..." type="text"/>
+</div>
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high/50 p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+</button>
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high/50 p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-64 flex-shrink-0 space-y-stack-md">
+<div>
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-sm">Filters</h3>
+<div class="space-y-stack-md border-b border-outline-variant/30 pb-stack-md">
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-stack-xs">Categories</h4>
+<div class="space-y-2">
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary/50 bg-surface" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">T-Shirts</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary/50 bg-surface" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Hoodies</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary/50 bg-surface" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Water Bottles</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary/50 bg-surface" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Mugs</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary/50 bg-surface" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Tote Bags</span>
+</label>
+</div>
+</div>
+<div class="space-y-stack-md border-b border-outline-variant/30 pb-stack-md pt-stack-md">
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-stack-xs">Price Range</h4>
+<div class="flex items-center space-x-2">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-md px-3 py-2 text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="Min" type="number"/>
+<span class="text-on-surface-variant">-</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-md px-3 py-2 text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="Max" type="number"/>
+</div>
+</div>
+<div class="space-y-stack-md pt-stack-md">
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-stack-xs">Color</h4>
+<div class="flex flex-wrap gap-2">
+<button aria-label="Black" class="w-8 h-8 rounded-full bg-black border border-outline-variant focus:ring-2 focus:ring-offset-2 focus:ring-secondary"></button>
+<button aria-label="White" class="w-8 h-8 rounded-full bg-white border border-outline-variant focus:ring-2 focus:ring-offset-2 focus:ring-secondary"></button>
+<button aria-label="Blue" class="w-8 h-8 rounded-full bg-blue-600 border border-outline-variant focus:ring-2 focus:ring-offset-2 focus:ring-secondary"></button>
+<button aria-label="Red" class="w-8 h-8 rounded-full bg-red-600 border border-outline-variant focus:ring-2 focus:ring-offset-2 focus:ring-secondary"></button>
+<button aria-label="Gray" class="w-8 h-8 rounded-full bg-gray-400 border border-outline-variant focus:ring-2 focus:ring-offset-2 focus:ring-secondary"></button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid Area -->
+<div class="flex-grow">
+<!-- Toolbar -->
+<div class="flex flex-col sm:flex-row justify-between items-center mb-stack-md gap-4">
+<div class="text-on-surface-variant font-body-md text-body-md">Showing 1-12 of 48 products</div>
+<div class="flex items-center space-x-4">
+<label class="font-label-md text-label-md text-on-surface" for="sort">Sort by:</label>
+<select class="bg-surface-container-low border border-outline-variant rounded-md px-4 py-2 text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" id="sort">
+<option>Featured</option>
+<option>Newest</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+</select>
+</div>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="product-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group relative">
+<div class="absolute top-2 left-2 z-10 bg-cyan-100 text-cyan-900 px-3 py-1 rounded-full font-label-sm text-label-sm font-semibold">New</div>
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed, professional product photography shot of a minimalist black t-shirt featuring a subtle, high-tech logo. The shirt is displayed flat against a pristine white background with soft, diffused studio lighting creating elegant highlights and shadows. The aesthetic is modern, premium, and clean, fitting a luxury tech-apparel brand. High resolution, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhxoQQht3KBydTP_nWOJrbiRWH9Fyg-USQeYygYbfRFtPH6crIsNTwri2_2GdxeChogi-vdnWZ6P2lY79TlLyFJgwSrNPaoyWEzbOWprEkW6qrjT1m8o28JpRpF9vNl-J9jhyMiY5SqNNHARBHmMr0bj8BrmE16MZ8RwYMRe9oC0r0nwwENT7F1vtjntBFckbNr36O4oJu85W1FweWRMUkQNZcyDw7j_rM8ZBtlxw0z3NJwXcy67NXwFwGEMRl8ce81WVv7Zgrqx8"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-label-md text-label-md text-primary mb-1">Sliptech Core Tee</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Black</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">$35.00</span>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group relative">
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A premium close-up shot of a sleek, matte white stainless steel water bottle with a minimalist geometric design. It sits on a smooth, slightly reflective surface in a bright, light-mode studio setup. Soft ambient lighting creates a pristine, clinical yet luxurious aesthetic. High-end product photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYgy9_0cZLr_tzqfYUrGwzj-DkGI2fEnGOd_f4_Ck62G-YCAWkT0m9z2_GkyrlqRu5cTmjYeh0KWVPIJODqAtWstSZNxgdmpoxrSoRIDimnhPcMe24_6CnWwdKEXriA9uMjbNhHGOtX3sQnEBTCbLYTinHea9XSCHtvJvhsonwY-pzmvBNzqr4iTzw7Fcln4VGImp0eWfN-c7uuqRBAu_J98dFwZ0g9OL9VvUo7yaV0bsr-WCc6d-CSaUpsujdmSsH4fOVqBQGMiU"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-label-md text-label-md text-primary mb-1">Precision Hydro Flask</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Matte White</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">$45.00</span>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group relative">
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A stylized, architectural product shot of a dark navy heavy-weight hoodie. The fabric texture is clearly visible, suggesting high quality. It is draped elegantly over an invisible form in a minimalist, gallery-like setting with stark white walls and dramatic, soft directional lighting. Premium retail presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB8ZDKn3mrhF_GneHkfAd2zVRuMmqobR9NKHzTPX52D6JyGwiFlw3Ua7GuMz0FCNXdEjs9cCMjr1Rrat416qhAhwt2CwWgl7L8w2_-Mk1snmx4X9wbugrXCwmEU7H3nXIJMCzn-TNflci1YBlQe2z9oEOzzl0KeckJVE00E15CGmwfPbqmy9DdM0S671zbwVgcvwMb4-O8zKDiToXqRUl1ZBltST4WdrqIEp8Si2AFxB_5L7zqFh5AoktcZHTraSdlmvM34n2ao7Y"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-label-md text-label-md text-primary mb-1">Engineer Heavy Hoodie</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Navy</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">$85.00</span>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Add more cards as needed following the same structure -->
+<!-- Product Card 4 -->
+<div class="product-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group relative">
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-end flat lay photograph of a minimalist tech backpack in charcoal grey. The bag features clean lines and hidden zippers. It rests on a pristine light grey concrete surface. The lighting is bright and even, highlighting the technical fabric texture. Modern, sophisticated aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC20hWB0rOGJM15_-PK9jc9BfbjQgJLd5fsqgT-VOFF1g6tptjQw4vgHpv-xa-1KJ8Tm7zCUh6mO9zS5ZXXnOYdXgSan2fnq1OI3fa-VcJYjGKpIhG8C239lvjB6sOPVLsm0UWofLX-PKxM00gF50SNzXh07XuwJsutjDajB-TWz9GDDr8JsHbga-L6Z3Nj_yvFO2IyCtDamgGzb5RRq9UoECYwtTEQYgktP6ZYVUlGVyf572j2DMUtzQKaoLK_fy6umy99Ujzqpng"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-label-md text-label-md text-primary mb-1">Commuter Tech Pack</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Charcoal</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">$120.00</span>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="product-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group relative">
+<div class="absolute top-2 left-2 z-10 bg-cyan-100 text-cyan-900 px-3 py-1 rounded-full font-label-sm text-label-sm font-semibold">Low Stock</div>
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, modern ceramic mug in matte black with a glossy interior, sitting on a translucent glass surface. The background is pure white. Subtle reflections and soft lighting emphasize the smooth curvature and premium finish of the mug. High-tech, minimalist office aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMqzz8JSMUwKF39C-g4WG5xNXRrXTo7uV_ISYq2eCckttwJPVLlavpasQMIyx4IwQEkbR7n5ZvnBiM-fqRox54khR-d2e52wJXOCpomwS0X4tm59_dBB5zMPINVbpseXNYyR3jL4CfogLRsQgzB-JvlNvLPKxFIvoDXIFuZqmikKaCq3yccKZUyhgUMZEnV1fjHl_slh8DIxqNTZPO8iwOkpSQnjnqtmK0MY85k_JzoEHUZu1RvVhBXa7hMdaDrXiplri9vXzUMOc"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-label-md text-label-md text-primary mb-1">Ceramic Desk Mug</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Matte Black</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">$25.00</span>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="product-card bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group relative">
+<div class="aspect-square bg-surface-container-low relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed macro shot of a premium synthetic leather mousepad in light grey. The camera angle is low, highlighting the stitched edges and smooth surface texture. The lighting is bright and clean, typical of modern luxury tech accessories. Professional, sterile light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpuLZ-G2y6NlhUctE7xmcLafVj7n7spDEF-mHASIfThTUhLjJVBGI3A4nVndScb1CsVmJ_50wjshAEt0hKzjmk0VJuZyJfhOulZkpiySRxF-RUjDw4qJ2dg6deWY8BiKXKOW1UtgGjq4MHe_FivRy5DCbpFsT8bOo24oDlsEH32FtXss4nswREg2lAElxza-6Wbvq1WcbhRx1vRS7cEuHoKMJWD-FqCwRdfyGxLxBuyfLmKesgu1SxIbJCMyQKR3e3SsTgqaYrRh4"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-label-md text-label-md text-primary mb-1">Pro Glide Mousepad</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Light Grey</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">$30.00</span>
+<button class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-stack-xl flex justify-center items-center space-x-2">
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md">1</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors font-label-md text-label-md text-on-surface">2</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors font-label-md text-label-md text-on-surface">3</button>
+<span class="text-on-surface-variant px-2">...</span>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors font-label-md text-label-md text-on-surface">8</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-on-tertiary-container w-full py-stack-xl mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<a class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed block mb-stack-md opacity-80 hover:opacity-100 transition-opacity" href="#">
+                    Sliptech
+                </a>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-secondary-container opacity-80 hover:opacity-100 transition-opacity">
+                    © 2024 Sliptech Merchandise Store. Engineered for Precision.
+                </p>
+</div>
+<div class="col-span-1 md:col-span-3 flex flex-wrap gap-gutter md:justify-end">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Shipping Info</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#">Returns</a>
+</div>
+</div>
+</footer>
+</body></html>
