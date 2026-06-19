@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { NewsletterForm } from "@/components/store/NewsletterForm";
+import { ProductCard } from "@/components/store/ProductCard";
 import { buttonClasses } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn.js";
+import { getFeaturedProducts } from "@/lib/db/catalog";
 
 // Marketing imagery from the supplied designs. TODO: replace with owned assets
 // hosted in Supabase Storage before launch.
@@ -40,7 +42,9 @@ const categories = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const featured = await getFeaturedProducts(4);
+
   return (
     <>
       {/* Hero */}
@@ -134,6 +138,30 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Featured products */}
+      {featured.length > 0 && (
+        <section className="py-stack-xl px-margin-mobile md:px-margin-desktop bg-surface">
+          <div className="max-w-container-max mx-auto">
+            <div className="flex justify-between items-end mb-stack-lg">
+              <h2 className="font-headline-xl text-headline-xl text-primary">
+                Featured
+              </h2>
+              <Link
+                href="/shop"
+                className="font-label-md text-label-md text-secondary hover:underline flex items-center gap-1"
+              >
+                Shop all <Icon name="chevron_right" className="text-[16px]" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+              {featured.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Newsletter */}
       <section className="py-stack-xl px-margin-mobile md:px-margin-desktop bg-surface">

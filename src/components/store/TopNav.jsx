@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Icon } from "@/components/ui/Icon";
+import { useCart } from "@/lib/cart/cart-context";
 import { cn } from "@/lib/cn.js";
 
 const navLinks = [
@@ -16,6 +17,7 @@ const navLinks = [
 export function TopNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { count, hydrated } = useCart();
 
   const isActive = (href) =>
     href === "/shop" ? pathname.startsWith("/shop") : pathname === href;
@@ -53,9 +55,14 @@ export function TopNav() {
           <Link
             href="/cart"
             aria-label="Cart"
-            className="p-unit text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 rounded-full transition-colors"
+            className="relative p-unit text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 rounded-full transition-colors"
           >
             <Icon name="shopping_cart" />
+            {hydrated && count > 0 && (
+              <span className="absolute top-0 right-0 min-w-4.5 h-4.5 px-1 bg-secondary text-on-secondary rounded-full text-[11px] font-semibold flex items-center justify-center">
+                {count > 99 ? "99+" : count}
+              </span>
+            )}
           </Link>
           <Link
             href="/account"

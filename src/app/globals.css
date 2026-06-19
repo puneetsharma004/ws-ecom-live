@@ -185,3 +185,13 @@
 .ambient-shadow {
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
 }
+
+.product-card {
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.product-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
