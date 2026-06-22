@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { EditProfileForm } from "@/components/store/EditProfileForm";
 import { PageHeader } from "@/components/store/PageHeader";
 import { Button } from "@/components/ui/Button";
 import { signout } from "@/lib/auth/actions";
@@ -30,7 +31,7 @@ export default async function AccountPage() {
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("full_name, role")
+    .select("full_name, phone, role")
     .eq("id", user.id)
     .single();
 
@@ -40,10 +41,11 @@ export default async function AccountPage() {
         title={`Hi, ${profile?.full_name || user.email}`}
         subtitle="Manage your account and orders."
       />
-      <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-stack-xl">
+      <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-stack-xl flex flex-col gap-stack-md">
         <div className="glass-card rounded-xl p-stack-md max-w-lg flex flex-col gap-stack-sm">
           <Row label="Email" value={user.email} />
           {profile?.full_name && <Row label="Name" value={profile.full_name} />}
+          {profile?.phone && <Row label="Phone" value={profile.phone} />}
           <Row label="Account type" value={profile?.role ?? "customer"} />
 
           <div className="flex items-center gap-stack-sm mt-stack-sm">
@@ -69,6 +71,11 @@ export default async function AccountPage() {
             </Button>
           </form>
         </div>
+
+        <EditProfileForm
+          fullName={profile?.full_name ?? ""}
+          phone={profile?.phone ?? ""}
+        />
       </div>
     </div>
   );

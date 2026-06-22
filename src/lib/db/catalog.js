@@ -1,5 +1,5 @@
 import "server-only";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 
 export const PRODUCTS_PER_PAGE = 12;
 
@@ -21,7 +21,7 @@ const DETAIL_SELECT =
   "id, slug, name, description, base_price, compare_at_price, is_featured, created_at, categories(slug, name), product_images(id, image_url, alt, sort_order), product_variants(id, sku, label, price_override, stock_qty, attributes, sort_order)";
 
 export async function getCategories() {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("categories")
     .select("id, slug, name")
@@ -36,7 +36,7 @@ export async function getProducts({
   sort = "featured",
   page = 1,
 } = {}) {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const empty = {
     products: [],
     total: 0,
@@ -89,7 +89,7 @@ export async function getProducts({
 }
 
 export async function getProductBySlug(slug) {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("products")
     .select(DETAIL_SELECT)
@@ -128,7 +128,7 @@ export async function getProductBySlug(slug) {
 }
 
 export async function getFeaturedProducts(limit = 4) {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("products")
     .select(LIST_SELECT)
@@ -141,7 +141,7 @@ export async function getFeaturedProducts(limit = 4) {
 
 export async function getRelatedProducts(categorySlug, excludeSlug, limit = 4) {
   if (!categorySlug) return [];
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data: cat } = await supabase
     .from("categories")
     .select("id")

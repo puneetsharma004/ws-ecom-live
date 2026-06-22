@@ -6,6 +6,10 @@ import { ProductPurchase } from "@/components/store/ProductPurchase";
 import { Icon } from "@/components/ui/Icon";
 import { getProductBySlug, getRelatedProducts } from "@/lib/db/catalog";
 
+// ISR: cache the rendered product page, refresh in the background every 5 min.
+// Admin edits call revalidatePath to bust it immediately.
+export const revalidate = 300;
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);

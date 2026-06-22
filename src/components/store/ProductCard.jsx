@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Icon } from "@/components/ui/Icon";
@@ -9,7 +10,7 @@ function isNew(createdAt) {
   return days <= 14;
 }
 
-export function ProductCard({ product }) {
+export function ProductCard({ product, priority = false }) {
   const href = `/products/${product.slug}`;
   const onSale =
     product.compareAtPrice && product.compareAtPrice > product.basePrice;
@@ -27,11 +28,13 @@ export function ProductCard({ product }) {
         className="aspect-square bg-surface-container-low relative overflow-hidden block"
       >
         {product.image ? (
-          // biome-ignore lint/performance/noImgElement: remote catalog image (Storage/CDN URL)
-          <img
+          <Image
             src={product.image.url}
             alt={product.image.alt || product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            priority={priority}
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-outline">

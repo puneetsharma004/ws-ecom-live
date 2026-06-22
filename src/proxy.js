@@ -6,11 +6,13 @@ export async function proxy(request) {
 }
 
 export const config = {
+  // Only run on routes that actually need auth. Public pages (home, shop,
+  // product, courses, static) skip the proxy entirely → no Supabase round-trip,
+  // much faster navigation. Sessions still refresh when visiting these routes.
   matcher: [
-    /*
-     * Match all request paths except static assets and image files so the
-     * auth session is refreshed on every page/route navigation.
-     */
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)",
+    "/admin/:path*",
+    "/account/:path*",
+    "/orders/:path*",
+    "/checkout/:path*",
   ],
 };

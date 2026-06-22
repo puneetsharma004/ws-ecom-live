@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
@@ -12,11 +13,13 @@ export function ProductGallery({ images, name }) {
     <div className="flex flex-col gap-stack-sm">
       <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-lowest ambient-shadow">
         {main ? (
-          // biome-ignore lint/performance/noImgElement: remote catalog image (Storage/CDN URL)
-          <img
+          <Image
             src={main.url}
             alt={main.alt || name}
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 58vw"
+            className="object-cover"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-outline">
@@ -34,17 +37,18 @@ export function ProductGallery({ images, name }) {
               onClick={() => setActive(i)}
               aria-label={`View image ${i + 1}`}
               className={cn(
-                "aspect-square rounded-lg overflow-hidden border-2 transition-colors",
+                "relative aspect-square rounded-lg overflow-hidden border-2 transition-colors",
                 i === active
                   ? "border-primary"
                   : "border-transparent hover:border-outline-variant opacity-70 hover:opacity-100",
               )}
             >
-              {/* biome-ignore lint/performance/noImgElement: remote catalog image (Storage/CDN URL) */}
-              <img
+              <Image
                 src={img.url}
                 alt={img.alt || name}
-                className="w-full h-full object-cover"
+                fill
+                sizes="120px"
+                className="object-cover"
               />
             </button>
           ))}

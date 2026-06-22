@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { computeShipping } from "@/lib/checkout";
+import { rateLimit } from "@/lib/rate-limit";
 import { getRazorpay, razorpayConfigured } from "@/lib/razorpay";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
@@ -44,6 +45,12 @@ export async function POST(request) {
     data: { user },
   } = await ssr.auth.getUser();
   if (!user) return fail("Please sign in to check out.", 401);
+
+  if (
+    !rateLimit({ key: `checkout:${user.id}`, limit: 15, windowMs: 600_000 }).ok
+  ) {
+    return fail("Too many checkout attempts. Please wait a minute.", 429);
+  }
 
   let json;
   try {

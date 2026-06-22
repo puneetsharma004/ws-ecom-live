@@ -270,3 +270,91 @@ export async function updateOrderStatus(formData) {
   revalidatePath("/admin/orders");
   revalidatePath(`/admin/orders/${id}`);
 }
+
+// ---- courses ----------------------------------------------------------------
+
+const courseSchema = z.object({
+  title: z.string().trim().min(1, "Title is required.").max(160),
+  slug: z.string().trim().max(160).optional(),
+  external_url: z.url("Enter a valid link (https://…)."),
+  blurb: z.string().trim().max(2000).optional(),
+  image_url: z.string().trim().max(1000).optional(),
+  price_label: z.string().trim().max(40).optional(),
+});
+
+function courseFields(formData) {
+  const parsed = courseSchema.safeParse({
+    title: formData.get("title"),
+    slug: formData.get("slug"),
+    external_url: formData.get("external_url"),
+    blurb: formData.get("blurb"),
+    image_url: formData.get("image_url"),
+    price_label: formData.get("price_label"),
+  });
+  if (!parsed.success) return { error: parsed.error.issues[0].message };
+  const d = parsed.data;
+  return {
+    values: {
+      title: d.title,
+      slug: d.slug ? slugify(d.slug) : slugify(d.title),
+      external_url: d.external_url,
+      blurb: d.blurb || null,
+      image_url: d.image_url || null,
+      price_label: d.price_label || null,
+      is_published: formData.get("is_published") === "on",
+      sort_order: Number.parseInt(formData.get("sort_order"), 10) || 0,
+    },
+  };
+}
+
+export async function createCourse(_prev, formData) {
+  const supabase = await requireAdmin();
+  const { values, error } = courseFields(formData);
+  if (error) return { error };
+
+  const { data, error: dbError } = await supabase
+    .from("courses")
+    .insert(values)
+    .select("id")
+    .single();
+  if (dbError) {
+    return {
+      error: dbError.code === "23505" ? "That slug is taken." : dbError.message,
+    };
+  }
+  revalidatePath("/admin/courses");
+  revalidatePath("/courses");
+  redirect(`/admin/courses/${data.id}`);
+}
+
+export async function updateCourse(_prev, formData) {
+  const supabase = await requireAdmin();
+  const id = String(formData.get("id"));
+  const { values, error } = courseFields(formData);
+  if (error) return { error };
+
+  const { error: dbError } = await supabase
+    .from("courses")
+    .update(values)
+    .eq("id", id);
+  if (dbError) {
+    return {
+      error: dbError.code === "23505" ? "That slug is taken." : dbError.message,
+    };
+  }
+  revalidatePath("/admin/courses");
+  revalidatePath(`/admin/courses/${id}`);
+  revalidatePath("/courses");
+  return { ok: true, message: "Saved." };
+}
+
+export async function deleteCourse(formData) {
+  const supabase = await requireAdmin();
+  await supabase
+    .from("courses")
+    .delete()
+    .eq("id", String(formData.get("id")));
+  revalidatePath("/admin/courses");
+  revalidatePath("/courses");
+  redirect("/admin/courses");
+}

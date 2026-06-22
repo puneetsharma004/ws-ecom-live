@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 const schema = z.object({ email: z.email().max(254) });
@@ -12,6 +13,19 @@ export async function POST(request) {
     return NextResponse.json(
       { error: "Newsletter is not configured yet." },
       { status: 503 },
+    );
+  }
+
+  if (
+    !rateLimit({
+      key: `newsletter:${getClientIp(request)}`,
+      limit: 5,
+      windowMs: 600_000,
+    }).ok
+  ) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 },
     );
   }
 

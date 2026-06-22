@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { rateLimit } from "@/lib/rate-limit";
 import { safeEqual } from "@/lib/signature";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
@@ -26,6 +27,12 @@ export async function POST(request) {
   } = await ssr.auth.getUser();
   if (!user) {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
+  }
+
+  if (
+    !rateLimit({ key: `verify:${user.id}`, limit: 30, windowMs: 600_000 }).ok
+  ) {
+    return NextResponse.json({ error: "Too many requests." }, { status: 429 });
   }
 
   const parsed = schema.safeParse(await request.json().catch(() => null));

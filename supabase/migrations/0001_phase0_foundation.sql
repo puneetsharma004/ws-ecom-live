@@ -51,14 +51,15 @@ create policy "profiles_update_own" on public.profiles
 create policy "profiles_select_admin" on public.profiles
   for select using (public.is_admin());
 
--- Prevent privilege escalation: a normal user cannot change their own role.
--- Only the service-role client (trusted server code) may set role.
+-- Prevent privilege escalation: an ordinary end-user (the `authenticated`/`anon`
+-- Postgres role used by the app) cannot change their own role. Trusted contexts
+-- — the service-role client, the SQL editor / Table editor (postgres) — still can.
 create or replace function public.prevent_role_change()
 returns trigger
 language plpgsql
 as $$
 begin
-  if (new.role is distinct from old.role) and current_user <> 'service_role' then
+  if (new.role is distinct from old.role) and current_user in ('anon', 'authenticated') then
     new.role := old.role;
   end if;
   return new;

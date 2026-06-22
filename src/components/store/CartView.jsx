@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { buttonClasses } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -9,13 +10,14 @@ import { formatINR } from "@/lib/money";
 function CartRow({ item, setQty, removeItem }) {
   return (
     <div className="flex gap-stack-sm p-stack-sm bg-surface-container-lowest rounded-xl border border-outline-variant/20">
-      <div className="w-20 h-20 rounded-lg overflow-hidden bg-surface-container-low shrink-0">
+      <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-surface-container-low shrink-0">
         {item.image?.url ? (
-          // biome-ignore lint/performance/noImgElement: remote catalog image (Storage/CDN URL)
-          <img
+          <Image
             src={item.image.url}
             alt={item.name}
-            className="w-full h-full object-cover"
+            fill
+            sizes="80px"
+            className="object-cover"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-outline">

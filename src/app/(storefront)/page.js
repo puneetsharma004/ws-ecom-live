@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { NewsletterForm } from "@/components/store/NewsletterForm";
 import { ProductCard } from "@/components/store/ProductCard";
@@ -5,6 +6,9 @@ import { buttonClasses } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn.js";
 import { getFeaturedProducts } from "@/lib/db/catalog";
+
+// ISR: cache the home page, refresh featured products every 5 minutes.
+export const revalidate = 300;
 
 // Marketing imagery from the supplied designs. TODO: replace with owned assets
 // hosted in Supabase Storage before launch.
@@ -50,11 +54,13 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="relative min-h-[640px] md:min-h-[760px] flex items-center justify-center px-margin-mobile md:px-margin-desktop overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* biome-ignore lint/performance/noImgElement: remote marketing image, swapped for owned asset later */}
-          <img
-            className="w-full h-full object-cover opacity-90"
+          <Image
             src={HERO_IMG}
             alt="WS CubeTech premium tech apparel and accessories"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-90"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
@@ -118,11 +124,12 @@ export default async function HomePage() {
                   cat.wide && "md:col-span-2",
                 )}
               >
-                {/* biome-ignore lint/performance/noImgElement: remote marketing image, swapped for owned asset later */}
-                <img
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 cubic-transition"
+                <Image
                   src={cat.img}
                   alt={cat.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                  className="object-cover group-hover:scale-105 cubic-transition"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-stack-md w-full">

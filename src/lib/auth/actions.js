@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
@@ -73,4 +74,28 @@ export async function signout() {
     await supabase.auth.signOut();
   }
   redirect("/");
+}
+
+export async function updateProfile(_prevState, formData) {
+  if (!configured()) return { error: NOT_CONFIGURED };
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect("/login?next=/account");
+
+  const fullName = String(formData.get("full_name") || "").trim();
+  const phone = String(formData.get("phone") || "").trim();
+
+  // RLS limits this to the user's own row; the role column can't be changed here
+  // (the prevent_role_change trigger blocks end-user role edits).
+  const { error } = await supabase
+    .from("profiles")
+    .update({ full_name: fullName || null, phone: phone || null })
+    .eq("id", user.id);
+  if (error) return { error: error.message };
+
+  revalidatePath("/account");
+  return { ok: true, message: "Profile updated." };
 }
